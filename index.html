@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>X90 Omnipotent Control</title>
+    <style>
+        :root {
+            --primary-color: #00ff88; /* Màu xanh neon */
+            --bg-color: rgba(15, 15, 15, 0.95);
+            --text-color: #ffffff;
+            --border-glow: 0 0 10px rgba(0, 255, 136, 0.5);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background: #1a1a1a; /* Nền giả lập game */
+            height: 100vh;
+            overflow: hidden;
+            touch-action: none;
+        }
+
+        /* Menu Container */
+        #menu-container {
+            position: absolute;
+            top: 50px;
+            left: 20px;
+            width: 280px;
+            background: var(--bg-color);
+            border: 1px solid var(--primary-color);
+            border-radius: 12px;
+            box-shadow: var(--border-glow), 0 10px 30px rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+            user-select: none;
+            z-index: 9999;
+        }
+
+        /* Tiêu đề Menu */
+        .menu-header {
+            padding: 15px;
+            background: linear-gradient(90deg, var(--primary-color), #00b362);
+            color: #000;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 11px 11px 0 0;
+            cursor: move;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        /* Danh sách chức năng */
+        .menu-content {
+            padding: 10px;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.3s;
+        }
+
+        .menu-item:last-child { border: none; }
+
+        .menu-item span {
+            color: var(--text-color);
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        /* Switch Toggle */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 46px;
+            height: 22px;
+        }
+
+        .switch input { opacity: 0; width: 0; height: 0; }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #333;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px; width: 16px;
+            left: 3px; bottom: 3px;
+            background-color: #fff;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary-color);
+            box-shadow: 0 0 10px var(--primary-color);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(24px);
+        }
+
+        /* Footer */
+        .menu-footer {
+            text-align: center;
+            font-size: 10px;
+            color: #666;
+            padding: 8px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Chỉ báo trạng thái */
+        .status-dot {
+            height: 8px;
+            width: 8px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.4; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="menu-container">
+    <div class="menu-header" id="drag-handle">
+        X90 OMNIPOTENT MB
+    </div>
+    
+    <div class="menu-content">
+        <div class="menu-item">
+            <span>Aimlock</span>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div class="menu-item">
+            <span>Aimhead</span>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div class="menu-item">
+            <span>Lockhead</span>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div class="menu-item">
+            <span>Aimbot</span>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div class="menu-item">
+            <span>Ghim đầu</span>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+
+    <div class="menu-footer">
+        <span class="status-dot"></span> System Verified
+    </div>
+</div>
+
+<script>
+    // Logic Kéo Thả (Draggable) cho Mobile và PC
+    const menu = document.getElementById("menu-container");
+    const handle = document.getElementById("drag-handle");
+    let isDragging = false;
+    let offsetX, offsetY;
+
+    handle.addEventListener("mousedown", (e) => startDragging(e.clientX, e.clientY));
+    handle.addEventListener("touchstart", (e) => startDragging(e.touches[0].clientX, e.touches[0].clientY));
+
+    document.addEventListener("mousemove", (e) => drag(e.clientX, e.clientY));
+    document.addEventListener("touchmove", (e) => drag(e.touches[0].clientX, e.touches[0].clientY));
+
+    document.addEventListener("mouseup", stopDragging);
+    document.addEventListener("touchend", stopDragging);
+
+    function startDragging(x, y) {
+        isDragging = true;
+        offsetX = x - menu.offsetLeft;
+        offsetY = y - menu.offsetTop;
+    }
+
+    function drag(x, y) {
+        if (!isDragging) return;
+        menu.style.left = (x - offsetX) + "px";
+        menu.style.top = (y - offsetY) + "px";
+    }
+
+    function stopDragging() {
+        isDragging = false;
+    }
+
+    // Hiển thị thông báo khi bật/tắt (tùy chọn)
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(item => {
+        item.addEventListener('change', function() {
+            const name = this.closest('.menu-item').querySelector('span').innerText;
+            console.log(`${name}: ${this.checked ? 'Bật' : 'Tắt'}`);
+        });
+    });
+</script>
+
+</body>
+</html>
