@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>PayloadContent</key>
+    <array>
+        <dict>
+            <key>PayloadDisplayName</key>
+            <string>AimHead100%</string>
+            <key>PayloadType</key>
+            <string>com.apple.AimHead.LockKey</string>
+            <key>PayloadIdentifier</key>
+            <string>com.apple.LockHead.x90.Vip</string>
+            <key>PayloadUUID</key>
+            <string>LockHeadVip</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            
+            <key>HeadLockOn</key>
+            <true/>
+            <key>LockHead</key>
+            <real>1000</real>
+            <key>AimLock</key>
+            <true/>
+            <key>LockHeadZero_X_Y</key>
+            <true/>
+            <key>AuTuHead</key>
+            <real>100.0</real>
+
+            <key>AimLockHead_Logic</key>
+            <string>Auto_Head_Lock</string>
+            <key>TeleportHeadLock</key>
+            <true/>
+            <key>HeadLockOn</key>
+            <real>1000</real>
+            <key>FOV_Aim_Lock</key>
+            <real>360.0</real>
+
+            <key>AimBody_Head</key>
+            <true/>
+            <key>LockHeadDaTa</key>
+            <string>LockOn_Tam</string>
+            <key>NoBoDy</key>
+            <string>FixRung</string>
+            <key>Autulock</key>
+            <true/>
+
+            <key>MovementPrediction</key>
+            <true/>
+            <key>TrackingAimbotAdhesion</key>
+            <string>1000</string>
+            <key>AimLockKDA</key>
+            <true/>
+
+            <key>TouchResolution</key>
+            <integer>1000</integer>
+            <key>TouchInertiaDisabled</key>
+            <true/>
+            <key>PointerAcceleration</key>
+            <false/>
+            <key>TouchDifferentialLimit</key>
+            <real>0.1</real>
+
+            <key>CustomConfiguration</key>
+            <dict>
+                <key>no_spread_active</key>
+                <integer>1</integer>
+                <key>bullet_track_precision</key>
+                <real>1000</real>
+                <key>aimbot_speed</key>
+                <real>1000</real>
+                <key>headshot_chance</key>
+                <real>1000</real>
+                <key>perfect_headshot</key>
+                <true/>
+                <key>magnetism_force</key>
+                <real>1000</real>
+            </dict>
+        </dict>
+    </array>
+
+    <key>PayloadDescription</key>
+    <string>AimHeadpro</string>
+    <key>PayloadDisplayName</key>
+    <string>AimHeadVip</string>
+    <key>PayloadIdentifier</key>
+    <string>com.apple.AimHead.LockOn.Pro</string>
+    <key>PayloadOrganization</key>
+    <string>AimHead</string>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadUUID</key>
+    <string>AimHeadVip</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+</dict>
+</plist>
