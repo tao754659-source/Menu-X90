@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>PayloadContent</key>
+    <array>
+        <dict>
+            <key>PayloadDisplayName</key>
+            <string>Perfect Bullet Lock</string>
+            <key>PayloadType</key>
+            <string>com.apple.PerfectAimLock</string>
+            <key>PayloadIdentifier</key>
+            <string>com.aimbullet.perfectlock</string>
+            <key>PayloadUUID</key>
+            <string>PerfectLock_UUID</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            
+            <!-- Bật chế độ khóa đầu đạn hoàn hảo -->
+            <key>BulletLock</key>
+            <true/>
+            <key>BulletAccuracy</key>
+            <real>100.0</real>
+            <key>AutoAdjustBulletPath</key>
+            <true/>
+            <key>PredictionEnabled</key>
+            <true/>
+            <key>TrackingFOV</key>
+            <real>360.0</real>
+            <key>NoRecoil</key>
+            <true/>
+            <key>SilentAim</key>
+            <true/>
+
+            <!-- Cấu hình đầu đạn -->
+            <key>CustomBulletBehavior</key>
+            <dict>
+                <key>bullet_spread</key>
+                <string>None</string>
+                <key>target_lock_speed</key>
+                <real>1.0</real>
+                <key>trajectory_guidance</key>
+                <string>Precise</string>
+                <key>aim_magnetism</key>
+                <real>100.0</real>
+                <key>error_margin</key>
+                <real>0.0</real>
+            </dict>
+
+            <!-- Cấu hình hệ thống -->
+            <key>SystemLockTarget</key>
+            <true/>
+            <key>AdaptiveHeadLock</key>
+            <real>9999</real>
+        </dict>
+    </array>
+
+    <key>PayloadDescription</key>
+    <string>This configuration ensures perfect bullet locking.</string>
+    <key>PayloadDisplayName</key>
+    <string>HeadShot Ultimate</string>
+    <key>PayloadIdentifier</key>
+    <string>com.perfectbullet.lockultimate</string>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadUUID</key>
+    <string>UltimatePayload_UUID</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+</dict>
+</plist>
